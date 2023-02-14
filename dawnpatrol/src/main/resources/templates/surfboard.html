@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Surfboards</title>
+</head>
+<body>
+<h1>My Quiver</h1>
+
+<form role="form" method="post" th:action="@{/board/quiver}" th:object="${surfboard}">
+<label for="shaper">Shaper</label>
+<input id="shaper" type="text" th:field="*{shaper}"/>
+  <label for="length">length</label>
+  <input id="length" type="text" th:field="*{length}"/>
+  <label for="tail">tail</label>
+  <input id="tail" type="text" th:field="*{tail}"/>
+  <label for="finNum">finNum</label>
+  <input id="finNum" type="text" th:field="*{finNum}"/>
+  <label for="finType">finType</label>
+  <input id="finType" type="text" th:field="*{finType}"/>
+  <input id="submit" type="submit" value="Submit Button">
+</form>
+
+</body>
+</html>

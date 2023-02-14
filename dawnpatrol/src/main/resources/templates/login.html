@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lineup</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="error-display"></div>
+    <div class="login-container">
+        <h1>Welcome to the Lineup</h1>
+        <h2>Please sign in to continue</h2>
+        <form name="f" class="login-form" th:action="@{/login}" method="post">
+            <br />
+            <label for="username">Username:</label>
+            <br />
+            <input id="username" type="text" name="username">
+            <br />
+            <label for="password">Password:</label>
+            <br />
+            <input id="password" type="password" name="password">
+            <br />
+            <br />
+            <input style="margin-bottom: 10px; cursor:pointer;" id="signin" type="submit" value="Sign In">
+            <br/>
+
+        </form>
+        <div>No Account? <a th:href="@{/user/register}">Sign Up</a></div>
+    </div>
+    <script src="./resources/js/script.js"></script>
+</body>
+
+</html>
