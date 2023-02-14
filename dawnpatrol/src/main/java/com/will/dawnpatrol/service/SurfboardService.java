@@ -26,4 +26,8 @@ public class SurfboardService {
         List<Surfboard> userSurfboards = surfboardRepository.findByUser(user);
         return userSurfboards;
     }
+
+    public void deleteSurfboard(int id){
+        surfboardRepository.deleteById(id);
+    }
 }

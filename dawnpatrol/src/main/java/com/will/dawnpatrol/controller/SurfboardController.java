@@ -37,7 +37,7 @@ public class SurfboardController {
         List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
         System.out.println(userBoards);
         model.addAttribute("surfboard", surfboard);
-        model.addAttribute("userBoards", userBoards);
+        model.addAttribute("surfboards", userBoards);
         return "surfboard.html";
     }
 
@@ -49,6 +49,19 @@ public class SurfboardController {
         surfboard.setUser(user);
         surfboardService.addNewSurfboard(surfboard);
         return "test.html";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteSurfboard(Model model, @PathVariable("id") int id){
+        int boardId = id;
+        System.out.println("Path Variable" + id);
+        surfboardService.deleteSurfboard(id);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<User> activeUser = userService.findUserByEmail(username);
+        List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
+        model.addAttribute("surfboard", surfboard);
+        model.addAttribute("surfboards", userBoards);
+        return "surfboard.html";
     }
 
 }

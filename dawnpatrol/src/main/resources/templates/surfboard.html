@@ -21,5 +21,28 @@
   <input id="submit" type="submit" value="Submit Button">
 </form>
 
+<table>
+  <tr>
+    <th>Shaper/Model</th>
+    <th>Length</th>
+    <th>Tail</th>
+    <th>Fin #</th>
+    <th>Fin Type</th>
+    <th>Button</th>
+  </tr>
+  <tr th:each="surfboard: ${surfboards}">
+    <td th:text="${surfboard.shaper}"/>
+    <td th:text="${surfboard.length}"/>
+    <td th:text="${surfboard.tail}"/>
+    <td th:text="${surfboard.finNum}"/>
+    <td th:text="${surfboard.finType}"/>
+    <td>
+      <form th:action="@{/board/delete/{id}(id=${surfboard.id})}" method="post">
+        <input type="submit" value="delete">
+      </form>
+    </td>
+  </tr>
+</table>
+
 </body>
 </html>
