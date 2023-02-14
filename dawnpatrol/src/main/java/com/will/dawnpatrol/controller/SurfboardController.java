@@ -35,7 +35,6 @@ public class SurfboardController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<User> activeUser = userService.findUserByEmail(username);
         List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
-        System.out.println(userBoards);
         model.addAttribute("surfboard", surfboard);
         model.addAttribute("surfboards", userBoards);
         return "surfboard.html";
@@ -43,12 +42,16 @@ public class SurfboardController {
 
     @PostMapping("/quiver")
     public String addSurfboard(Model model, @ModelAttribute("surfboard") Surfboard surfboard){
-        Object username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
         System.out.println(username);
         user.setId(8);
         surfboard.setUser(user);
         surfboardService.addNewSurfboard(surfboard);
-        return "test.html";
+        Optional<User> activeUser = userService.findUserByEmail(username);
+        List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
+        model.addAttribute("surfboard", surfboard);
+        model.addAttribute("surfboards", userBoards);
+        return "surfboard.html";
     }
 
     @PostMapping("/delete/{id}")
