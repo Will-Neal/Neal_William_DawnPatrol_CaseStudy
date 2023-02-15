@@ -5,6 +5,7 @@
     <title>Spot Check</title>
 </head>
 <body>
+<div th:insert="header.html"></div>
 <h1>My Spots</h1>
 
 <form role="form" method="post" th:action="@{/spot/lineup}" th:object="${spot}">

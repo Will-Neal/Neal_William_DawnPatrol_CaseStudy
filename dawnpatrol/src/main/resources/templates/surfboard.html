@@ -5,6 +5,7 @@
   <title>Surfboards</title>
 </head>
 <body>
+<div th:insert="header.html"></div>
 <h1>My Quiver</h1>
 
 <form role="form" method="post" th:action="@{/board/quiver}" th:object="${surfboard}">

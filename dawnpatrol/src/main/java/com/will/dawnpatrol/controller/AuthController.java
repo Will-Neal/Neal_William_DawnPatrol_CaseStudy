@@ -24,7 +24,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(null);
         SecurityContextHolder.clearContext();
         httpServletRequest.logout();
-        return "logout.html";
+        return "login.html";
     }
 
     @GetMapping("/login")

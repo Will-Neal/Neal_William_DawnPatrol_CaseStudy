@@ -41,7 +41,7 @@ public class UserController {
 			if(userService.checkUnique(email)) {
 				System.out.println("IF");
 				userService.addNewUser(user, encoder);
-				return "success.html";
+				return "login.html";
 			} else {
 				System.out.println("else");
 				model.addAttribute("error", "error");

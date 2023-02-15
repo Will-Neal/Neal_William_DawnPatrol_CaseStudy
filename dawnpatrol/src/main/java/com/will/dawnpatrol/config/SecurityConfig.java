@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/board/quiver", true)
+                .defaultSuccessUrl("/", true)
                 .and()
                 .userDetailsService(customUserDetailsService)
                 .headers(headers -> headers.frameOptions().sameOrigin())
