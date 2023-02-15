@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Board</title>
+</head>
+<body>
+<h1>Update Board</h1>
+
+<h6 th:text="${spot.id}"></h6>
+
+<form role="form" method="post" th:action="@{/spot/update/{id}(id=${spot.id})}" th:object="${spot}">
+  <label for="name">Name</label>
+  <input id="name" type="text" th:field="*{name}"/>
+  <label for="type">Type</label>
+  <input id="type" type="text" th:field="*{type}"/>
+  <label for="location">location</label>
+  <input id="location" type="text" th:field="*{location}"/>
+  <label for="swell">Ideal Swell Direction</label>
+  <input id="swell" type="text" th:field="*{idealExposure}"/>
+  <label for="wind">Ideal Wind</label>
+  <input id="wind" type="text" th:field="*{idealWind}"/>
+  <input id="submit" type="submit" value="Submit Button">
+</form>
+</body>
+</html>

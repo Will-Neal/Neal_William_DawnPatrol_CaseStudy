@@ -8,9 +8,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import org.springframework.stereotype.Component;
 
 
-
+@Component
 @Entity
 public class Spot {
 	
@@ -32,8 +33,18 @@ public class Spot {
 		super();
 	}
 
-	public Spot(String name, String location, String type, String idealExposure, String idealWind) {
-		super();
+	public Spot(int id, User user, String name, String location, String type, String idealExposure, String idealWind) {
+		this.id = id;
+		this.user = user;
+		this.name = name;
+		this.location = location;
+		this.type = type;
+		this.idealExposure = idealExposure;
+		this.idealWind = idealWind;
+	}
+
+	public Spot(User user, String name, String location, String type, String idealExposure, String idealWind) {
+		this.user = user;
 		this.name = name;
 		this.location = location;
 		this.type = type;
@@ -47,6 +58,14 @@ public class Spot {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getName() {
@@ -90,33 +109,15 @@ public class Spot {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Spot spot = (Spot) o;
+		return id == spot.id && Objects.equals(user, spot.user) && Objects.equals(name, spot.name) && Objects.equals(location, spot.location) && Objects.equals(type, spot.type) && Objects.equals(idealExposure, spot.idealExposure) && Objects.equals(idealWind, spot.idealWind);
+	}
+
+	@Override
 	public int hashCode() {
-		return Objects.hash(id, idealExposure, idealWind, location, name, type);
+		return Objects.hash(id, user, name, location, type, idealExposure, idealWind);
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Spot other = (Spot) obj;
-		return id == other.id && Objects.equals(idealExposure, other.idealExposure)
-				&& Objects.equals(idealWind, other.idealWind) && Objects.equals(location, other.location)
-				&& Objects.equals(name, other.name) && Objects.equals(type, other.type);
-	}
-
-	@Override
-	public String toString() {
-		return "Break [id=" + id + ", name=" + name + ", location=" + location + ", type=" + type + ", idealExposure="
-				+ idealExposure + ", idealWind=" + idealWind + "]";
-	}
-
-
-
-
-	
-	
 }

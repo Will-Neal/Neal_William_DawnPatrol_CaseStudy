@@ -7,8 +7,6 @@
 <body>
 <h1>Update Board</h1>
 
-<h6 th:text="${surfboard.id}"></h6>
-
 <form role="form" method="post" th:action="@{/board/update/{id}(id=${surfboard.id})}" th:object="${surfboard}">
   <label for="shaper">Shaper</label>
   <input id="shaper" type="text" th:field="*{shaper}" />
