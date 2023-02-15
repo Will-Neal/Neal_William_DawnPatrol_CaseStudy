@@ -28,7 +28,7 @@
     <th>Tail</th>
     <th>Fin #</th>
     <th>Fin Type</th>
-    <th>Button</th>
+    <th>Actions</th>
   </tr>
   <tr th:each="surfboard: ${surfboards}">
     <td th:text="${surfboard.shaper}"/>
@@ -36,6 +36,11 @@
     <td th:text="${surfboard.tail}"/>
     <td th:text="${surfboard.finNum}"/>
     <td th:text="${surfboard.finType}"/>
+    <td>
+      <form th:action="@{/board/update/{id}(id=${surfboard.id})}" method="get">
+        <input type="submit" value="update">
+      </form>
+    </td>
     <td>
       <form th:action="@{/board/delete/{id}(id=${surfboard.id})}" method="post">
         <input type="submit" value="delete">

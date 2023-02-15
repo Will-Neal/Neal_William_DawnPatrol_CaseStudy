@@ -27,6 +27,11 @@ public class SurfboardService {
         return userSurfboards;
     }
 
+    public Surfboard getSurfboardById(int id){
+        Surfboard surfboard = surfboardRepository.getReferenceById(id);
+        return surfboard;
+    }
+
     public void deleteSurfboard(int id){
         surfboardRepository.deleteById(id);
     }
