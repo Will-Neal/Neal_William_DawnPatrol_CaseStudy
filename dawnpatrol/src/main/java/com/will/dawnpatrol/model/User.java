@@ -2,7 +2,9 @@ package com.will.dawnpatrol.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -10,15 +12,21 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 public class User {
-	
+
+	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@JsonIgnore
 	private String firstName;
+	@JsonIgnore
 	private String lastName;
 
+	@JsonIgnore
 	@Column(unique = true)
 	private String email;
+
+	@JsonIgnore
 	private String password;
 	private String location;
 	private String homebreak;

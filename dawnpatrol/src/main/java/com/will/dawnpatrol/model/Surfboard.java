@@ -2,6 +2,8 @@ package com.will.dawnpatrol.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +20,7 @@ public class Surfboard {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -36,6 +38,7 @@ public class Surfboard {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 
 	public User getUser() {
 		return user;
