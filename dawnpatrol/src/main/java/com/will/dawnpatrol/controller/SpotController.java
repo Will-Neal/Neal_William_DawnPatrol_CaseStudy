@@ -5,6 +5,7 @@ import com.will.dawnpatrol.model.Surfboard;
 import com.will.dawnpatrol.model.User;
 import com.will.dawnpatrol.service.SpotService;
 import com.will.dawnpatrol.service.UserService;
+import com.will.dawnpatrol.utils.ContextAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class SpotController {
 
     @GetMapping("/lineup")
     public String getSpotPage(Model model){
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         System.out.println(username);
         Optional<User> activeUser = userService.findUserByEmail(username);
         List<Spot> userSpots = spotService.getSpotByUser(activeUser.get());
@@ -44,7 +45,7 @@ public class SpotController {
 
     @PostMapping("/lineup")
     public String addSpot(Model model, @ModelAttribute("spot") Spot spot){
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         Optional<User> userByName = userService.findUserByEmail(username);
         User activeUser = userByName.get();
 
@@ -77,7 +78,7 @@ public class SpotController {
         current.setIdealWind(update.getIdealWind());
         spotService.addNewSpot(current);
 
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         Optional<User> activeUser = userService.findUserByEmail(username);
 
         List<Spot> userSpot = spotService.getSpotByUser(activeUser.get());
@@ -88,7 +89,7 @@ public class SpotController {
     @PostMapping("/delete/{id}")
     public String deleteSpot(Model model, @PathVariable("id") int id){
         spotService.deleteSpot(id);
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         Optional<User> activeUser = userService.findUserByEmail(username);
         List<Spot> userSpots = spotService.getSpotByUser(activeUser.get());
         model.addAttribute("spot", spot);

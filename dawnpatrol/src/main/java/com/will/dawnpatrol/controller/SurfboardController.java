@@ -4,6 +4,7 @@ import com.will.dawnpatrol.model.Surfboard;
 import com.will.dawnpatrol.model.User;
 import com.will.dawnpatrol.service.SurfboardService;
 import com.will.dawnpatrol.service.UserService;
+import com.will.dawnpatrol.utils.ContextAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class SurfboardController {
 
     @GetMapping("/quiver")
     public String getSurfboardPage(Model model){
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         System.out.println(username);
         Optional<User> activeUser = userService.findUserByEmail(username);
         List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
@@ -44,7 +45,7 @@ public class SurfboardController {
 
     @PostMapping("/quiver")
     public String addSurfboard(Model model, @ModelAttribute("surfboard") Surfboard surfboard){
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         Optional<User> userByName = userService.findUserByEmail(username);
         User activeUser = userByName.get();
 
@@ -79,7 +80,7 @@ public class SurfboardController {
         current.setFinType(update.getFinType());
         surfboardService.addNewSurfboard(current);
 
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         Optional<User> activeUser = userService.findUserByEmail(username);
 
         List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
@@ -90,7 +91,7 @@ public class SurfboardController {
     @PostMapping("/delete/{id}")
     public String deleteSurfboard(Model model, @PathVariable("id") int id){
         surfboardService.deleteSurfboard(id);
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String username = ContextAccess.getActiveUsername();
         Optional<User> activeUser = userService.findUserByEmail(username);
         List<Surfboard> userBoards = surfboardService.getSurfboardByUser(activeUser.get());
         model.addAttribute("surfboard", surfboard);
