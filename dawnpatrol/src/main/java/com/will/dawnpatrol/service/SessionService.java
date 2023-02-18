@@ -85,6 +85,19 @@ public class SessionService {
         sessionRepository.deleteById(id);
     }
 
+    public Double getMaxWave(Long id){
+        Double wave = sessionRepository.findMaxWave(id);
+        return wave;
+    }
 
+    public Double getMinWave(Long id){
+        Double wave = sessionRepository.findMinWave(id);
+        return wave;
+    }
+
+    public Double getAvgWave(Long id){
+        Double wave = sessionRepository.findAvgWave(id);
+        return wave;
+    }
 
 }

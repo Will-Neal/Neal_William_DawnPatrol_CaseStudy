@@ -41,6 +41,12 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(email);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
+
+
         List<Surfboard> surfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> spots = spotService.getSpotByUser(user);
         List<Session> userSessions = sessionService.getSessionByUser(user);
@@ -49,6 +55,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", surfboards);
         model.addAttribute("spots", spots);
+        model.addAttribute("wavedata", waveData);
 
 
         return "session.html";
@@ -63,6 +70,10 @@ public class SessionController {
         session.setUser(user);
         sessionService.addNewSession(session);
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.getSessionByUser(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -74,6 +85,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
 
         return "session.html";
@@ -115,6 +127,10 @@ public class SessionController {
         Optional<User> activeUser = userService.findUserByEmail(username);
         User user = activeUser.get();
 
+        int waveId = user.getId();
+        Long longId = Long.valueOf(waveId);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.getSessionByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
@@ -124,6 +140,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
         return "session.html";
     }
 
@@ -135,6 +152,10 @@ public class SessionController {
         Optional<User> activeUser = userService.findUserByEmail(username);
         User user = activeUser.get();
 
+        int waveId = user.getId();
+        Long longId = Long.valueOf(waveId);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.getSessionByUser(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -144,6 +165,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
         return "session.html";
     }
 
@@ -157,10 +179,15 @@ public class SessionController {
     List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
     List<Spot> userSpots = spotService.getSpotByUser(user);
 
+    int id = user.getId();
+    Long longId = Long.valueOf(id);
+    Wave waveData = generateWaveData(longId);
+
     model.addAttribute("session", session);
     model.addAttribute("sessions", userSessions);
     model.addAttribute("surfboards", userSurfboards);
     model.addAttribute("spots", userSpots);
+    model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -171,6 +198,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.getOrderedSessionByUserAsc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -179,6 +210,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -189,6 +221,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionByUserByRatingDesc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -197,6 +233,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -207,6 +244,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionByUserByRatingAsc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -215,6 +256,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -225,6 +267,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionByBoardDesc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -233,6 +279,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -243,6 +290,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionByBoardAsc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -251,6 +302,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -261,6 +313,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionBySpotDesc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -269,6 +325,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -279,6 +336,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionBySpotAsc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -287,6 +348,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -297,6 +359,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionByDateDesc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -305,6 +371,7 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
     }
@@ -315,6 +382,10 @@ public class SessionController {
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
+        int id = user.getId();
+        Long longId = Long.valueOf(id);
+        Wave waveData = generateWaveData(longId);
+
         List<Session> userSessions = sessionService.orderSessionByDateAsc(user);
         List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
         List<Spot> userSpots = spotService.getSpotByUser(user);
@@ -323,8 +394,18 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        model.addAttribute("wavedata", waveData);
 
         return "session.html";
+    }
+
+
+    public Wave generateWaveData(long id){
+        Double maxWave = sessionService.getMaxWave(id);
+        Double minWave = sessionService.getMinWave(id);
+        Double avgWave = sessionService.getAvgWave(id);
+        Wave waveData = new Wave(maxWave, minWave, avgWave);
+        return waveData;
     }
 
 }

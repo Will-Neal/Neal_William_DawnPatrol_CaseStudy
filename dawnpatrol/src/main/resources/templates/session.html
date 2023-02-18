@@ -9,6 +9,11 @@
 <div th:insert="~{header.html}"></div>
 <h1>Sessions</h1>
 
+<h2>Stats</h2>
+<h3 th:text="'Max: '+ ${wavedata.max}"></h3>
+<h3 th:text="'Min: ' + ${wavedata.min}"></h3>
+<h3 th:text="'Avg: ' + ${wavedata.avg}"></h3>
+
 <h2>Add Session</h2>
 
 

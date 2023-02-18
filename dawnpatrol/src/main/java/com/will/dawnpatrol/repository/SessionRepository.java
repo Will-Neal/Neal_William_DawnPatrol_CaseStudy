@@ -3,6 +3,8 @@ package com.will.dawnpatrol.repository;
 import com.will.dawnpatrol.model.Surfboard;
 import com.will.dawnpatrol.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.will.dawnpatrol.model.Session;
@@ -29,5 +31,14 @@ public interface SessionRepository extends JpaRepository<Session, Long>{
     List<Session> findByUserOrderByDateDesc(User user);
 
     List<Session> findByUserOrderByDateAsc(User user);
+
+    @Query(value = "SELECT MAX(size) FROM session s Where s.user_id = :id", nativeQuery = true)
+    Double findMaxWave(@Param("id") Long id);
+
+    @Query(value = "SELECT MIN(size) FROM session s Where s.user_id = :id", nativeQuery = true)
+    Double findMinWave(@Param("id") Long id);
+
+    @Query(value = "SELECT AVG(size) FROM session s Where s.user_id = :id", nativeQuery = true)
+    Double findAvgWave(@Param("id") Long id);
 
 }
