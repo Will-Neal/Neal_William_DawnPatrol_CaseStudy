@@ -25,6 +25,47 @@ public class SessionService {
         return userSessions;
     }
 
+    public List<Session> getOrderedSessionByUserDesc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderBySizeDesc(user);
+        return userSessions;
+    }
+
+    public List<Session> getOrderedSessionByUserAsc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderBySizeAsc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionByUserByRatingDesc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderByRatingDesc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionByUserByRatingAsc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderByRatingAsc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionByBoardDesc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderByBoardDesc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionByBoardAsc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderByBoardAsc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionBySpotDesc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderBySpotDesc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionBySpotAsc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderBySpotAsc(user);
+        return userSessions;
+    }
+
+
     public Session getSessionById(Long id){
         Session session = sessionRepository.getReferenceById(id);
         return session;

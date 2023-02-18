@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings("DuplicatedCode")
 @Controller
 @RequestMapping("/session")
 public class SessionController {
@@ -143,6 +144,150 @@ public class SessionController {
         model.addAttribute("sessions", userSessions);
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
+        return "session.html";
+    }
+
+    @GetMapping("/sortbysizedesc")
+    public String sortedBySizeDesc(Model model){
+    String username = ContextAccess.getActiveUsername();
+    Optional<User> userOptional = userService.findUserByEmail(username);
+    User user = userOptional.get();
+
+    List<Session> userSessions = sessionService.getOrderedSessionByUserDesc(user);
+    List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+    List<Spot> userSpots = spotService.getSpotByUser(user);
+
+    model.addAttribute("session", session);
+    model.addAttribute("sessions", userSessions);
+    model.addAttribute("surfboards", userSurfboards);
+    model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbysizeasc")
+    public String sortedBySizeAsc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.getOrderedSessionByUserAsc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbyratingdesc")
+    public String sortedByRatingDesc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionByUserByRatingDesc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbyratingasc")
+    public String sortedByRatingAsc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionByUserByRatingAsc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbyboardasc")
+    public String sortedByBoardDesc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionByBoardDesc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbyboarddesc")
+    public String sortedByBoardAsc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionByBoardAsc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbyspotasc")
+    public String sortedBySpotDesc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionBySpotDesc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbyspotdesc")
+    public String sortedBySpotAsc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionBySpotAsc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
         return "session.html";
     }
 

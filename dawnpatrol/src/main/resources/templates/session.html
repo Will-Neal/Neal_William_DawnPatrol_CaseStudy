@@ -8,6 +8,10 @@
 <body>
 <h1>Sessions</h1>
 
+<h2>Add Session</h2>
+
+
+
 <form role="form" method="post" th:action="@{/session/paddle}" th:object="${session}">
   <label for="size">Size(ft)</label>
   <input id="size" type="number" th:field="*{size}"/>
@@ -19,22 +23,26 @@
   <input id="windStrength" type="number" th:field="*{windStrength}"/>
   <label for="windDirection">Wind Direction(degrees)</label>
   <input id="windDirection" type="number" th:field="*{windDirection}"/>
-  <select th:field="*{board}">
+  <label for="board">Board</label>
+  <select id="board" th:field="*{board}">
     <option th:each="board : ${surfboards}" th:value="${board.shaper}" th:text="${board.shaper}">
     </option>
   </select>
-  <select th:field="*{spot}">
+  <label for="spot">Spot</label>
+  <select id="spot" th:field="*{spot}">
     <option th:each="break : ${spots}" th:value="${break.name}" th:text="${break.name}">
     </option>
   </select>
-  <select th:field="*{rating}">
+  <label for="rating">Session Rating: </label>
+  <select id="rating" th:field="*{rating}">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
-  <select th:field="*{boardRating}">
+  <label for="boardRating">Board Rating: </label>
+  <select id="boardRating" th:field="*{boardRating}">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -43,6 +51,25 @@
   </select>
   <input id="submit" type="submit" value="Submit Button">
 </form>
+
+<h2>Sort Session</h2>
+<a th:href="@{/session/sortbysizedesc}">Size: High to Low</a>
+<br>
+<a th:href="@{/session/sortbysizeasc}">Size: Low to High</a>
+<br>
+<a th:href="@{/session/sortbyratingdesc}">Rating: High to Low</a>
+<br>
+<a th:href="@{/session/sortbyratingasc}">Rating: Low to High</a>
+<br>
+<a th:href="@{/session/sortbyboarddesc}">Board: A-Z</a>
+<br>
+<a th:href="@{/session/sortbyboardasc}">Board: Z-A</a>
+<br>
+<a th:href="@{/session/sortbyspotdesc}">Spot: A-Z</a>
+<br>
+<a th:href="@{/session/sortbyspotasc}">Spot: Z-A</a>
+<br>
+
 
 
 <table>

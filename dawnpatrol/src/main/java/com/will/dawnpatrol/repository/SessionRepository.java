@@ -13,5 +13,19 @@ import java.util.List;
 public interface SessionRepository extends JpaRepository<Session, Long>{
 
     List<Session> findByUser(User user);
+    List<Session> findByUserOrderBySizeDesc(User user);
+    List<Session> findByUserOrderBySizeAsc(User user);
+    List<Session> findByUserOrderByRatingDesc(User user);
+    List<Session> findByUserOrderByRatingAsc(User user);
+
+    List<Session> findByUserOrderByBoardDesc(User user);
+
+    List<Session> findByUserOrderByBoardAsc(User user);
+
+    List<Session> findByUserOrderBySpotDesc(User user);
+
+    List<Session> findByUserOrderBySpotAsc(User user);
+
+
 
 }
