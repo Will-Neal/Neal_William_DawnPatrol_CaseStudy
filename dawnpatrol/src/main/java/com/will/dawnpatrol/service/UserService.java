@@ -31,6 +31,7 @@ public class UserService {
         String hashPassword = encoder.encode(plainPassword);
         user.setPassword(hashPassword);
 
+
         return userRepository.save(user);
     }
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Board</title>
+</head>
+<body>
+<h1>Update Board</h1>
+
+<form role="form" method="post" th:action="@{/session/update/{id}(id=${id})}" th:object="${session}">
+  <label for="size">Size(ft)</label>
+  <input id="size" type="number" th:field="*{size}"/>
+  <label for="period">Period(s)</label>
+  <input id="period" type="number" th:field="*{period}"/>
+  <label for="direction">Swell Direction(degrees)</label>
+  <input id="direction" type="number" th:field="*{direction}"/>
+  <label for="windStrength">Wind Strength(mph)</label>
+  <input id="windStrength" type="number" th:field="*{windStrength}"/>
+  <label for="windDirection">Wind Direction(degrees)</label>
+  <input id="windDirection" type="number" th:field="*{windDirection}"/>
+  <select th:field="*{board}">
+    <option th:each="board : ${surfboards}" th:value="${board.shaper}" th:text="${board.shaper}">
+    </option>
+  </select>
+  <select th:field="*{spot}">
+    <option th:each="break : ${spots}" th:value="${break.name}" th:text="${break.name}">
+    </option>
+  </select>
+  <select th:field="*{rating}">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <select th:field="*{boardRating}">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input id="submit" type="submit" value="Submit Button">
+</form>
+</body>
+</html>

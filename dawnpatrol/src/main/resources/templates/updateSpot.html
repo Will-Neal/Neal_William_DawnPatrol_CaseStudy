@@ -7,8 +7,6 @@
 <body>
 <h1>Update Board</h1>
 
-<h6 th:text="${spot.id}"></h6>
-
 <form role="form" method="post" th:action="@{/spot/update/{id}(id=${spot.id})}" th:object="${spot}">
   <label for="name">Name</label>
   <input id="name" type="text" th:field="*{name}"/>
