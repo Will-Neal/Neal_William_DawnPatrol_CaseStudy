@@ -46,10 +46,14 @@ public class Session {
 
 	private String spot;
 
+	private String date;
+
+	private String comment;
+
 	public Session() {
 	}
 
-	public Session(User user, Double size, int period, int direction, int windStrength, int windDirection, int rating, int boardRating, String board, String spot) {
+	public Session(User user, Double size, int period, int direction, int windStrength, int windDirection, int rating, int boardRating, String board, String spot, String date, String comment) {
 		this.user = user;
 		this.size = size;
 		this.period = period;
@@ -60,9 +64,11 @@ public class Session {
 		this.boardRating = boardRating;
 		this.board = board;
 		this.spot = spot;
+		this.date = date;
+		this.comment = comment;
 	}
 
-	public Session(Long id, User user, Double size, int period, int direction, int windStrength, int windDirection, int rating, int boardRating, String board, String spot) {
+	public Session(Long id, User user, Double size, int period, int direction, int windStrength, int windDirection, int rating, int boardRating, String board, String spot, String date, String comment) {
 		this.id = id;
 		this.user = user;
 		this.size = size;
@@ -74,6 +80,8 @@ public class Session {
 		this.boardRating = boardRating;
 		this.board = board;
 		this.spot = spot;
+		this.date = date;
+		this.comment = comment;
 	}
 
 	public Long getId() {
@@ -164,17 +172,33 @@ public class Session {
 		this.spot = spot;
 	}
 
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Session session = (Session) o;
-		return period == session.period && direction == session.direction && windStrength == session.windStrength && windDirection == session.windDirection && rating == session.rating && boardRating == session.boardRating && Objects.equals(id, session.id) && Objects.equals(user, session.user) && Objects.equals(size, session.size) && Objects.equals(board, session.board) && Objects.equals(spot, session.spot);
+		return period == session.period && direction == session.direction && windStrength == session.windStrength && windDirection == session.windDirection && rating == session.rating && boardRating == session.boardRating && Objects.equals(id, session.id) && Objects.equals(user, session.user) && Objects.equals(size, session.size) && Objects.equals(board, session.board) && Objects.equals(spot, session.spot) && Objects.equals(date, session.date) && Objects.equals(comment, session.comment);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, user, size, period, direction, windStrength, windDirection, rating, boardRating, board, spot);
+		return Objects.hash(id, user, size, period, direction, windStrength, windDirection, rating, boardRating, board, spot, date, comment);
 	}
 
 	@Override
@@ -191,6 +215,8 @@ public class Session {
 				", boardRating=" + boardRating +
 				", board='" + board + '\'' +
 				", spot='" + spot + '\'' +
+				", date='" + date + '\'' +
+				", comment='" + comment + '\'' +
 				'}';
 	}
 }

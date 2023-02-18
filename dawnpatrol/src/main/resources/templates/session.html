@@ -13,6 +13,8 @@
 
 
 <form role="form" method="post" th:action="@{/session/paddle}" th:object="${session}">
+  <label for="date">Date: </label>
+  <input type="date" id="date" th:field="*{date}">
   <label for="size">Size(ft)</label>
   <input id="size" type="number" th:field="*{size}"/>
   <label for="period">Period(s)</label>
@@ -49,6 +51,8 @@
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
+  <label for="comment">Comments: </label>
+  <textarea id="comment" cols="30" rows="2" th:field="*{comment}"></textarea>
   <input id="submit" type="submit" value="Submit Button">
 </form>
 
@@ -74,6 +78,7 @@
 
 <table>
   <tr>
+    <th>Date </th>
     <th>Size (ft)</th>
     <th>Period (s)</th>
     <th>Direction (degrees)</th>
@@ -83,9 +88,11 @@
     <th>Board Rating</th>
     <th>Spot</th>
     <th>Session Rating</th>
+    <th>Comments </th>
     <th>Action</th>
   </tr>
   <tr th:each="sesh : ${sessions}">
+    <td th:text="${sesh.date}"/>
     <td th:text="${sesh.size}"/>
     <td th:text="${sesh.period}"/>
     <td th:text="${sesh.direction}"/>
@@ -95,7 +102,7 @@
     <td th:text="${sesh.boardRating}"/>
     <td th:text="${sesh.spot}"/>
     <td th:text="${sesh.rating}"/>
-
+    <td th:text="${sesh.comment}"/>
     <td>
       <form th:action="@{/session/update/{id}(id=${sesh.id})}" method="get">
         <input type="submit" value="update">
