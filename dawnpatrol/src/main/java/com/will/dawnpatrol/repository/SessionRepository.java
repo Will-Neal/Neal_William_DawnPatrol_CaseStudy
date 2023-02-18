@@ -26,6 +26,8 @@ public interface SessionRepository extends JpaRepository<Session, Long>{
 
     List<Session> findByUserOrderBySpotAsc(User user);
 
+    List<Session> findByUserOrderByDateDesc(User user);
 
+    List<Session> findByUserOrderByDateAsc(User user);
 
 }

@@ -65,6 +65,16 @@ public class SessionService {
         return userSessions;
     }
 
+    public List<Session> orderSessionByDateDesc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderByDateDesc(user);
+        return userSessions;
+    }
+
+    public List<Session> orderSessionByDateAsc(User user){
+        List<Session> userSessions = sessionRepository.findByUserOrderByDateAsc(user);
+        return userSessions;
+    }
+
 
     public Session getSessionById(Long id){
         Session session = sessionRepository.getReferenceById(id);

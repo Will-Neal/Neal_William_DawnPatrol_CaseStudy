@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Spot Check</title>
 </head>
-<div th:insert="~{header.html}"></div>
+
 <body>
+<div th:insert="~{header.html}"></div>
 <h1>Sessions</h1>
 
 <h2>Add Session</h2>
@@ -72,6 +73,10 @@
 <a th:href="@{/session/sortbyspotdesc}">Spot: A-Z</a>
 <br>
 <a th:href="@{/session/sortbyspotasc}">Spot: Z-A</a>
+<br>
+<a th:href="@{/session/sortbydatedesc}">Date: Present to Past</a>
+<br>
+<a th:href="@{/session/sortbydateasc}">Date: Past to Present</a>
 <br>
 
 

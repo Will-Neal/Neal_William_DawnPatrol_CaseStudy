@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Update Board</title>
+  <title>Update Spot</title>
 </head>
 <body>
-<h1>Update Board</h1>
+<div th:insert="~{header.html}"></div>
+<h1>Update Spot</h1>
 
 <form role="form" method="post" th:action="@{/spot/update/{id}(id=${spot.id})}" th:object="${spot}">
   <label for="name">Name</label>

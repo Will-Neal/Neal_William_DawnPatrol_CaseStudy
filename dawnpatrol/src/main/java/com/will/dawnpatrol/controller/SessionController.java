@@ -291,4 +291,40 @@ public class SessionController {
         return "session.html";
     }
 
+    @GetMapping("/sortbydatedesc")
+    public String sortedByDateDesc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionByDateDesc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
+    @GetMapping("/sortbydateasc")
+    public String sortedByDateAsc(Model model){
+        String username = ContextAccess.getActiveUsername();
+        Optional<User> userOptional = userService.findUserByEmail(username);
+        User user = userOptional.get();
+
+        List<Session> userSessions = sessionService.orderSessionByDateAsc(user);
+        List<Surfboard> userSurfboards = surfboardService.getSurfboardByUser(user);
+        List<Spot> userSpots = spotService.getSpotByUser(user);
+
+        model.addAttribute("session", session);
+        model.addAttribute("sessions", userSessions);
+        model.addAttribute("surfboards", userSurfboards);
+        model.addAttribute("spots", userSpots);
+
+        return "session.html";
+    }
+
 }
