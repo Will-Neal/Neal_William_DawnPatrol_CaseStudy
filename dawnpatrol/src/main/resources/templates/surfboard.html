@@ -1,54 +1,81 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Surfboards</title>
+    <meta charset="UTF-8">
+    <title>Surfboards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Poppins&family=Quicksand:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/surfboard.css}">
+    <link rel="stylesheet" href="../static/css/surfboard.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
 <body>
 <div th:insert="header.html"></div>
-<h1>My Quiver</h1>
+<h1>Add a Board</h1>
 
-<form role="form" method="post" th:action="@{/board/quiver}" th:object="${surfboard}">
-<label for="shaper">Shaper</label>
-<input id="shaper" type="text" th:field="*{shaper}"/>
-  <label for="length">length</label>
-  <input id="length" type="text" th:field="*{length}"/>
-  <label for="tail">tail</label>
-  <input id="tail" type="text" th:field="*{tail}"/>
-  <label for="finNum">finNum</label>
-  <input id="finNum" type="text" th:field="*{finNum}"/>
-  <label for="finType">finType</label>
-  <input id="finType" type="text" th:field="*{finType}"/>
-  <input id="submit" type="submit" value="Submit Button">
-</form>
-
-<table>
-  <tr>
-    <th>Shaper/Model</th>
-    <th>Length</th>
-    <th>Tail</th>
-    <th>Fin #</th>
-    <th>Fin Type</th>
-    <th>Actions</th>
-  </tr>
-  <tr th:each="surfboard: ${surfboards}">
-    <td th:text="${surfboard.shaper}"/>
-    <td th:text="${surfboard.length}"/>
-    <td th:text="${surfboard.tail}"/>
-    <td th:text="${surfboard.finNum}"/>
-    <td th:text="${surfboard.finType}"/>
-    <td>
-      <form th:action="@{/board/update/{id}(id=${surfboard.id})}" method="get">
-        <input type="submit" value="update">
-      </form>
-    </td>
-    <td>
-      <form th:action="@{/board/delete/{id}(id=${surfboard.id})}" method="post">
-        <input type="submit" value="delete">
-      </form>
-    </td>
-  </tr>
-</table>
+<div class="form-container">
+    <form role="form" method="post" th:action="@{/board/quiver}" th:object="${surfboard}">
+        <div class="label-input-pair">
+            <label for="shaper">Shaper: </label>
+            <br>
+            <input id="shaper" type="text" th:field="*{shaper}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="length">length</label>
+            <br>
+            <input id="length" type="text" th:field="*{length}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="tail">tail</label>
+            <br>
+            <input id="tail" type="text" th:field="*{tail}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="finNum">finNum</label>
+            <br>
+            <input id="finNum" type="text" th:field="*{finNum}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="finType">finType</label>
+            <br>
+            <input id="finType" type="text" th:field="*{finType}"/>
+        </div>
+        <br>
+        <input id="submit" type="submit" value="Submit Button">
+    </form>
+</div>
+<h1>My Boards</h1>
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Shaper/Model</th>
+            <th>Length</th>
+            <th>Tail</th>
+            <th>Fin #</th>
+            <th>Fin Type</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="surfboard: ${surfboards}">
+            <td th:text="${surfboard.shaper}"/>
+            <td th:text="${surfboard.length}"/>
+            <td th:text="${surfboard.tail}"/>
+            <td th:text="${surfboard.finNum}"/>
+            <td th:text="${surfboard.finType}"/>
+            <td>
+                <form th:action="@{/board/update/{id}(id=${surfboard.id})}" method="get">
+                    <input class="update-button" type="submit" value="update">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/board/delete/{id}(id=${surfboard.id})}" method="post">
+                    <input class="delete-button" type="submit" value="delete">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
 
 </body>
 </html>

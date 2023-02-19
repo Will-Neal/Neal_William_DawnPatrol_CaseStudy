@@ -1,0 +1,31 @@
+.header {
+    height: 250px;
+    background-color: #EF6461;
+    box-shadow: 2px 2px 5px #E4B363
+}
+
+.nav-bar {
+    text-decoration: none;
+    height: 40px;
+    background-color: #ea8583;
+    padding-top: 15px;
+    padding-left: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #E4B363;
+}
+
+.nav-link:hover {
+    color: #FFEAA3FF;
+    background-color: #E8E9Eb;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 400%;
+    color: #E4B363;
+    font-family: 'Philosopher', sans-serif;
+    margin-top: 67px
+}

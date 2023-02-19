@@ -2,21 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Spot Check</title>
+    <title>Update Spot</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Poppins&family=Quicksand:wght@700&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/spot.css}">
-    <link rel="stylesheet" href="../static/css/spot.css">
+    <link rel="stylesheet" th:href="@{/css/update_spot.css}">
+    <link rel="stylesheet" href="../static/css/update_spot.css">
     <link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
 <body>
-<div th:insert="header.html"></div>
-<h1>Add a Break</h1>
+<div th:insert="~{header.html}"></div>
+<h1>Update Spot</h1>
 
 <div class="form-container">
-    <form role="form" method="post" th:action="@{/spot/lineup}" th:object="${spot}">
+    <form role="form" method="post" th:action="@{/spot/update/{id}(id=${spot.id})}" th:object="${spot}">
         <div class="label-input-pair">
             <label for="name">Name: </label>
             <br>
@@ -46,37 +46,5 @@
         <input id="submit" type="submit" value="Submit Button">
     </form>
 </div>
-
-<h1>My Breaks</h1>
-<div class="table-container">
-    <table>
-        <tr>
-            <th>Spot</th>
-            <th>Break Type</th>
-            <th>Location</th>
-            <th>Swell Direction</th>
-            <th>Wind Direction</th>
-            <th>Actions</th>
-        </tr>
-        <tr th:each="spot : ${spots}">
-            <td th:text="${spot.name}"/>
-            <td th:text="${spot.type}"/>
-            <td th:text="${spot.location}"/>
-            <td th:text="${spot.idealExposure}"/>
-            <td th:text="${spot.idealWind}"/>
-            <td>
-                <form th:action="@{/spot/update/{id}(id=${spot.id})}" method="get">
-                    <input class="update-button" type="submit" value="update">
-                </form>
-            </td>
-            <td>
-                <form th:action="@{/spot/delete/{id}(id=${spot.id})}" method="post">
-                    <input class="delete-button" type="submit" value="delete">
-                </form>
-            </td>
-        </tr>
-    </table>
-</div>
-
 </body>
 </html>

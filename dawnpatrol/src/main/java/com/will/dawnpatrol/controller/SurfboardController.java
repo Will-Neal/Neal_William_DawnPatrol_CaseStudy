@@ -66,7 +66,7 @@ public class SurfboardController {
     public String getUpdateSurfboard(@PathVariable("id") int id, Model model){
         Surfboard surfboard = surfboardService.getSurfboardById(id);
         model.addAttribute("surfboard", surfboard);
-        return "updateBoard.html";
+        return "update_board.html";
     }
 
     @PostMapping("/update/{id}")

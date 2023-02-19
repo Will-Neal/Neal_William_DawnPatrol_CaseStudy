@@ -1,14 +1,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<div style="height: 250px; background-color: #EF6461; box-shadow: 2px 2px 5px #E4B363">
-    <div style="text-decoration: none; height: 40px; background-color: #ea8583;padding-top: 15px; padding-left: 30px;" class="nav-bar">
-        <a style="text-decoration: none;  color: #E4B363;" th:href="@{/spot/lineup}">Breaks</a>
-        <a style="text-decoration: none; color: #E4B363;" th:href="@{/board/quiver}">Boards</a>
-        <a style="text-decoration: none; color: #E4B363;" th:href="@{/session/paddle}">Sessions</a>
-        <a style="text-decoration: none; color: #E4B363;" th:href="@{/logout}">Logout</a>
+<div class="header">
+    <div class="nav-bar">
+        <a class="nav-link" th:href="@{/spot/lineup}">Breaks</a>
+        <a class="nav-link" th:href="@{/board/quiver}">Boards</a>
+        <a class="nav-link" th:href="@{/session/paddle}">Sessions</a>
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
     </div>
-    <h1 style="text-align: center; font-size: 300%; color: #E4B363; font-family: 'Philosopher', sans-serif; margin-top: 67px">Dawn
-        Patrol</h1>
+    <h1 class="main-title">Dawn Patrol</h1>
 </div>
 </body>
 </html>

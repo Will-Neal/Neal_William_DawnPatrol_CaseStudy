@@ -106,7 +106,7 @@ public class SessionController {
         model.addAttribute("surfboards", userSurfboards);
         model.addAttribute("spots", userSpots);
 
-        return "updateSession.html";
+        return "update_session.html";
     }
 
     @PostMapping("/update/{id}")

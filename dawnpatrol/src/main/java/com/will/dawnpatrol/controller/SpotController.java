@@ -65,7 +65,7 @@ public class SpotController {
     public String getUpdateSpot(@PathVariable("id") int id, Model model){
         Spot spot = spotService.getSpotById(id);
         model.addAttribute("spot", spot);
-        return "updateSpot.html";
+        return "update_spot.html";
     }
 
     @PostMapping("/update/{id}")

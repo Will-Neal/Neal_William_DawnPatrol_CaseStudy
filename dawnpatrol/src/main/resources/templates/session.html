@@ -9,6 +9,7 @@
           rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/session.css}">
     <link rel="stylesheet" href="../static/css/session.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 </div>
 
 <div class="form-header">
-    <h2>Add Session</h2>
+    <h1>Add Session</h1>
     <button class="form-display-button" id="formButton">Hide</button>
 </div>
 
@@ -122,7 +123,7 @@
     </form>
 </div>
 
-<h2>My Sessions</h2>
+<h1>My Sessions</h1>
 
 <div class="dropdown-container">
     <div class="sorting-dropdown">
@@ -143,45 +144,45 @@
 </div>
 
 <div class="table-container">
-<table>
-    <tr id="table-header">
-        <th class="th-left">Date</th>
-        <th>Size (ft)</th>
-        <th>Period (s)</th>
-        <th>Direction (degrees)</th>
-        <th>Wind Strength (mph)</th>
-        <th>Wind Direction (degrees)</th>
-        <th>Board</th>
-        <th>Board Rating</th>
-        <th>Spot</th>
-        <th>Session Rating</th>
-        <th>Comments</th>
-        <th></th>
-    </tr>
-    <tr th:each="sesh : ${sessions}">
-        <td th:text="${sesh.date}"/>
-        <td th:text="${sesh.size}"/>
-        <td th:text="${sesh.period}"/>
-        <td th:text="${sesh.direction}"/>
-        <td th:text="${sesh.windStrength}"/>
-        <td th:text="${sesh.windDirection}"/>
-        <td th:text="${sesh.board}"/>
-        <td th:text="${sesh.boardRating}"/>
-        <td th:text="${sesh.spot}"/>
-        <td th:text="${sesh.rating}"/>
-        <td th:text="${sesh.comment}"/>
-        <td>
-            <form th:action="@{/session/update/{id}(id=${sesh.id})}" method="get">
-                <input class="update-button" type="submit" value="update">
-            </form>
-        </td>
-        <td>
-            <form th:action="@{/session/delete/{id}(id=${sesh.id})}" method="post">
-                <input class="delete-button" type="submit" value="delete">
-            </form>
-        </td>
-    </tr>
-</table>
+    <table>
+        <tr id="table-header">
+            <th class="th-left">Date</th>
+            <th>Size (ft)</th>
+            <th>Period (s)</th>
+            <th>Direction (degrees)</th>
+            <th>Wind Strength (mph)</th>
+            <th>Wind Direction (degrees)</th>
+            <th>Board</th>
+            <th>Board Rating</th>
+            <th>Spot</th>
+            <th>Session Rating</th>
+            <th>Comments</th>
+            <th></th>
+        </tr>
+        <tr th:each="sesh : ${sessions}">
+            <td th:text="${sesh.date}"/>
+            <td th:text="${sesh.size}"/>
+            <td th:text="${sesh.period}"/>
+            <td th:text="${sesh.direction}"/>
+            <td th:text="${sesh.windStrength}"/>
+            <td th:text="${sesh.windDirection}"/>
+            <td th:text="${sesh.board}"/>
+            <td th:text="${sesh.boardRating}"/>
+            <td th:text="${sesh.spot}"/>
+            <td th:text="${sesh.rating}"/>
+            <td th:text="${sesh.comment}"/>
+            <td>
+                <form th:action="@{/session/update/{id}(id=${sesh.id})}" method="get">
+                    <input class="update-button" type="submit" value="update">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/session/delete/{id}(id=${sesh.id})}" method="post">
+                    <input class="delete-button" type="submit" value="delete">
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
