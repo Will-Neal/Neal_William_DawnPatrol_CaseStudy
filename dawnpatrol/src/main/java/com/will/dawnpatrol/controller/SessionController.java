@@ -121,6 +121,8 @@ public class SessionController {
         current.setBoardRating(update.getBoardRating());
         current.setSpot(update.getSpot());
         current.setRating(update.getRating());
+        current.setComment(update.getComment());
+        current.setDate(update.getDate());
         sessionService.addNewSession(current);
 
         String username = ContextAccess.getActiveUsername();

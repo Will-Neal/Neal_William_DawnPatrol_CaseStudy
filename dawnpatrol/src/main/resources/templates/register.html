@@ -3,41 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Poppins&family=Quicksand:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Registration Form</h1>
 
-<h6 th:if="${error}">That email already exists </h6>
 
-<form role="form" method="post" th:action="@{/user/register}" th:object="${user}">
-    <br>
-    <label for="firstName">First Name: </label>
-    <br>
-    <input id="firstName" type="text" th:field="*{firstName}"/>
-    <br>
-    <label for="lastName">Last Name: </label>
-    <br>
-    <input id="lastName" type="text" th:field="*{lastName}"/>
-    <br>
-    <label for="email">Email: </label>
-    <br>
-    <input id="email" type="text" th:field="*{email}"/>
-    <br>
-    <label for="password">Password: </label>
-    <br>
-    <input id="password" type="password" th:field="*{password}"/>
-    <br>
-    <label for="location">Location: </label>
-    <br>
-    <input id="location" type="text" th:field="*{location}"/>
-    <br>
-    <label for="homebreak">Homebreak: </label>
-    <br>
-    <input id="homebreak" type="text" th:field="*{homebreak}"/>
-    <br>
-    <br>
-    <input type="submit" value="Submit Button">
-</form>
+<div class="register-container">
 
+    <h1>Dawn Patrol</h1>
+    <h3>Create an account</h3>
+
+    <h6 th:if="${error}">That email already exists </h6>
+
+    <form role="form" method="post" th:action="@{/user/register}" th:object="${user}">
+        <br>
+        <label for="firstName">First Name: </label>
+        <br>
+        <input id="firstName" type="text" th:field="*{firstName}"/>
+        <br>
+        <label for="lastName">Last Name: </label>
+        <br>
+        <input id="lastName" type="text" th:field="*{lastName}"/>
+        <br>
+        <label for="email">Email: </label>
+        <br>
+        <input id="email" type="text" th:field="*{email}"/>
+        <br>
+        <label for="password">Password: </label>
+        <br>
+        <input id="password" type="password" th:field="*{password}"/>
+        <br>
+        <label for="location">Location: </label>
+        <br>
+        <input id="location" type="text" th:field="*{location}"/>
+        <br>
+        <label for="homebreak">Homebreak: </label>
+        <br>
+        <input id="homebreak" type="text" th:field="*{homebreak}"/>
+        <br>
+        <br>
+        <input id="submit" type="submit" value="Register">
+    </form>
+    <div class="login-link">Already Registered? <a th:href="@{/login}">Sign In</a></div>
+</div>
 </body>
 </html>

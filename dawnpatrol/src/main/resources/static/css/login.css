@@ -1,0 +1,51 @@
+body {
+    background-color: #313638;
+    color: #E0DFD5;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    color: #EF6461;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 250%;
+}
+
+h3 {
+    margin-top: 50px;
+}
+
+.login-container {
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    padding-top: 50px;
+    height: 500px;
+    width: 400px;
+    background-color: #E4B363;
+    border-radius: 7%;
+    box-shadow: 2px 2px 5px #EF6461;
+}
+
+#signin {
+    height: 50px;
+    background-color: #E0DFD5;
+    border-radius: 10px;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 2px 2px 5px #313638;
+}
+
+#signin:hover{
+    background-color: #E8E9Eb;
+}
+
+#signin:active{
+    box-shadow: 1px 1px 2px #313638;
+}
+
+
+
+input {
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+}
+
