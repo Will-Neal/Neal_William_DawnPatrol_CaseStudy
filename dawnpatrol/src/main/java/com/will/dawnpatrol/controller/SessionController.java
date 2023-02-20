@@ -403,11 +403,22 @@ public class SessionController {
 
 
     public Wave generateWaveData(long id){
-        Double maxWave = sessionService.getMaxWave(id);
-        Double minWave = sessionService.getMinWave(id);
-        Double avgWave = sessionService.getAvgWave(id);
-        Wave waveData = new Wave(maxWave, minWave, avgWave);
-        return waveData;
+        try {
+            Double maxWave = sessionService.getMaxWave(id);
+            Double minWave = sessionService.getMinWave(id);
+            Double avgWave = sessionService.getAvgWave(id);
+            Wave waveData = new Wave(maxWave, minWave, avgWave);
+            return waveData;
+        } catch (NullPointerException e){
+            Double maxWave = 0d;
+            Double minWave = 0d;
+            Double avgWave = 0d;
+            Wave waveData = new Wave(maxWave, minWave, avgWave);
+            return waveData;
+
+
+        }
+
     }
 
 }
