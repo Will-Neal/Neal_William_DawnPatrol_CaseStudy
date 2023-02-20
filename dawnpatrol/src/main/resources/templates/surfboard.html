@@ -18,27 +18,27 @@
 <div class="form-container">
     <form role="form" method="post" th:action="@{/board/quiver}" th:object="${surfboard}">
         <div class="label-input-pair">
-            <label for="shaper">Shaper: </label>
+            <label for="shaper">Shaper/Model: </label>
             <br>
             <input id="shaper" type="text" th:field="*{shaper}"/>
         </div>
         <div class="label-input-pair">
-            <label for="length">length</label>
+            <label for="length">Length:</label>
             <br>
             <input id="length" type="text" th:field="*{length}"/>
         </div>
         <div class="label-input-pair">
-            <label for="tail">tail</label>
+            <label for="tail">Tail:</label>
             <br>
             <input id="tail" type="text" th:field="*{tail}"/>
         </div>
         <div class="label-input-pair">
-            <label for="finNum">finNum</label>
+            <label for="finNum">Fin #:</label>
             <br>
             <input id="finNum" type="text" th:field="*{finNum}"/>
         </div>
         <div class="label-input-pair">
-            <label for="finType">finType</label>
+            <label for="finType">Fin Type:</label>
             <br>
             <input id="finType" type="text" th:field="*{finType}"/>
         </div>

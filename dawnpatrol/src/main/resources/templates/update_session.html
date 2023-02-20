@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Board</title>
+    <title>Update Session</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Poppins&family=Quicksand:wght@700&display=swap"
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div th:insert="~{header.html}"></div>
-<h1>Update Board</h1>
+<h1>Update Session</h1>
 
 <div class="form-container" style="margin-bottom: 150px;">
     <form role="form" method="post" th:action="@{/session/update/{id}(id=${id})}" th:object="${session}">
@@ -23,17 +23,17 @@
             <input type="date" id="date" th:field="*{date}">
         </div>
         <div class="label-input-pair">
-            <label for="size">Size(ft)</label>
+            <label for="size">Size(ft):</label>
             <br>
             <input id="size" type="number" th:field="*{size}"/>
         </div>
         <div class="label-input-pair">
-            <label for="period">Period(s)</label>
+            <label for="period">Period(s):</label>
             <br>
             <input id="period" type="number" th:field="*{period}"/>
         </div>
         <div class="label-input-pair">
-            <label for="direction">Swell Direction(degrees)</label>
+            <label for="direction">Swell Direction(degrees):</label>
             <br>
             <input id="direction" type="number" th:field="*{direction}"/>
         </div>
@@ -48,7 +48,7 @@
             <input id="windDirection" type="number" th:field="*{windDirection}"/>
         </div>
         <div class="label-input-pair">
-            <label for="board">Board</label>
+            <label for="board">Board:</label>
             <br>
             <select id="board" th:field="*{board}">
                 <option th:each="board : ${surfboards}" th:value="${board.shaper}" th:text="${board.shaper}">
@@ -56,7 +56,7 @@
             </select>
         </div>
         <div class="label-input-pair">
-            <label for="spot">Spot</label>
+            <label for="spot">Spot:</label>
             <br>
             <select id="spot" th:field="*{spot}">
                 <option th:each="break : ${spots}" th:value="${break.name}" th:text="${break.name}">
@@ -76,6 +76,7 @@
         </div>
         <div class="label-input-pair">
             <label for="boardRating">Board Rating: </label>
+            <br>
             <select id="boardRating" th:field="*{boardRating}">
                 <option value="1">1</option>
                 <option value="2">2</option>

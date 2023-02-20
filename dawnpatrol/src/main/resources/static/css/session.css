@@ -241,3 +241,6 @@ tr {
     border-bottom: 2px solid #313638;
 }
 
+.hidden{
+    display: none;
+}

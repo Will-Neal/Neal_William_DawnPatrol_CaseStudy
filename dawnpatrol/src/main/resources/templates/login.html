@@ -20,6 +20,8 @@
         <h1>Welcome to</h1>
         <h1>Dawn Patrol</h1>
         <h3>Please sign in to continue</h3>
+        <h4 th:if="${error}" th:text="${error}"></h4>
+        <h4 th:if="${logout}" th:text="${logout}"></h4>
         <form name="f" class="login-form" th:action="@{/login}" method="post">
             <br />
             <label for="username">Username:</label>
@@ -37,7 +39,7 @@
             <br/>
 
         </form>
-        <div>No Account? <a th:href="@{/user/register}">Sign Up</a></div>
+        <div class="register-link">No Account? <a th:href="@{/user/register}">Sign Up</a></div>
     </div>
     <script src="./resources/js/script.js"></script>
 </body>

@@ -19,11 +19,12 @@ h3 {
     margin-top: 50px;
     text-align: center;
     padding-top: 50px;
-    height: 500px;
+    height: fit-content;
     width: 400px;
     background-color: #E4B363;
     border-radius: 7%;
     box-shadow: 2px 2px 5px #EF6461;
+    padding-bottom: 35px;
 }
 
 #signin {

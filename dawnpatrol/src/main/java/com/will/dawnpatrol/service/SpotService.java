@@ -11,7 +11,7 @@ import java.util.List;
 @Service("spotService")
 public class SpotService {
 
-    SpotRepository spotRepository;
+    private final SpotRepository spotRepository;
     SpotService(SpotRepository spotRepository){
         this.spotRepository = spotRepository;
     }

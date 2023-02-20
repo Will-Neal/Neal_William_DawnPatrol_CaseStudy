@@ -20,15 +20,15 @@
     <div class="stats-flex-container">
         <div class="statsL">
             <h3>Largest: </h3>
-            <h3 th:text="'Max: '+ ${wavedata.max}">6 ft</h3>
+            <h3 th:text="${wavedata.max} + ' feet'"></h3>
         </div>
         <div class="statsC">
             <h3>Smallest: </h3>
-            <h3 th:text="'Min: ' + ${wavedata.min}">2 ft</h3>
+            <h3 th:text="${wavedata.min} + ' feet'"></h3>
         </div>
         <div class="statsR">
             <h3>Average: </h3>
-            <h3 th:text="'Avg: ' + ${wavedata.avg}">4.5 ft</h3>
+            <h3 th:text="${wavedata.avg} + ' feet'"></h3>
         </div>
     </div>
 </div>
@@ -38,7 +38,7 @@
     <button class="form-display-button" id="formButton">Hide</button>
 </div>
 
-<div class="form-container">
+<div id="form-container" class="form-container">
     <form role="form" method="post" th:action="@{/session/paddle}" th:object="${session}">
         <div class="label-input-pair"><label for="date">Date: </label>
             <br>
@@ -60,22 +60,22 @@
             <input id="direction" type="number" th:field="*{direction}"/>
         </div>
         <div class="label-input-pair">
-            <label for="windStrength">Wind Strength(mph)</label>
+            <label for="windStrength">Wind Strength(mph):</label>
             <br>
             <input id="windStrength" type="number" th:field="*{windStrength}"/>
         </div>
         <div class="label-input-pair">
-            <label for="windStrength">Wind Strength(mph)</label>
+            <label for="windStrength">Wind Strength(mph):</label>
             <br>
             <input id="windStrength" type="number" th:field="*{windStrength}"/>
         </div>
         <div class="label-input-pair">
-            <label for="windDirection">Wind Direction(degrees)</label>
+            <label for="windDirection">Wind Direction(degrees):</label>
             <br>
             <input id="windDirection" type="number" th:field="*{windDirection}"/>
         </div>
         <div class="label-input-pair">
-            <label for="board">Board</label>
+            <label for="board">Board:</label>
             <br>
             <select id="board" th:field="*{board}">
                 <option th:each="board : ${surfboards}" th:value="${board.shaper}" th:text="${board.shaper}">
@@ -83,7 +83,7 @@
             </select>
         </div>
         <div class="label-input-pair">
-            <label for="spot">Spot</label>
+            <label for="spot">Spot:</label>
             <br>
             <select id="spot" th:field="*{spot}">
                 <option th:each="break : ${spots}" th:value="${break.name}" th:text="${break.name}">
@@ -161,15 +161,15 @@
         </tr>
         <tr th:each="sesh : ${sessions}">
             <td th:text="${sesh.date}"/>
-            <td th:text="${sesh.size}"/>
-            <td th:text="${sesh.period}"/>
-            <td th:text="${sesh.direction}"/>
-            <td th:text="${sesh.windStrength}"/>
-            <td th:text="${sesh.windDirection}"/>
+            <td th:text="${sesh.size} + 'ft'"/>
+            <td th:text="${sesh.period} + 's'"/>
+            <td th:text="${sesh.direction} + '°'"/>
+            <td th:text="${sesh.windStrength} + ' mph'"/>
+            <td th:text="${sesh.windDirection} + '°'"/>
             <td th:text="${sesh.board}"/>
-            <td th:text="${sesh.boardRating}"/>
+            <td th:text="${sesh.boardRating} +'/5'"/>
             <td th:text="${sesh.spot}"/>
-            <td th:text="${sesh.rating}"/>
+            <td th:text="${sesh.rating} +'/5'"/>
             <td th:text="${sesh.comment}"/>
             <td>
                 <form th:action="@{/session/update/{id}(id=${sesh.id})}" method="get">
@@ -184,5 +184,6 @@
         </tr>
     </table>
 </div>
+<script src="/js/form_hide.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ import java.util.List;
 @Service("surfboardService")
 public class SurfboardService {
 
-     SurfboardRepository surfboardRepository;
+    private final SurfboardRepository surfboardRepository;
     //2nd method for injecting a bean(Constructor injection)
     @Autowired
     public SurfboardService(SurfboardRepository surfboardRepository){

@@ -11,7 +11,7 @@ import java.util.List;
 @Service("sessionsService")
 public class SessionService {
 
-    SessionRepository sessionRepository;
+    private final SessionRepository sessionRepository;
     SessionService(SessionRepository sessionRepository){
         this.sessionRepository = sessionRepository;
     }

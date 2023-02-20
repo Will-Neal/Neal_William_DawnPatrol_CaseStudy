@@ -19,11 +19,12 @@ public class AuthController {
 
     //Attempts at clearing the context
     @GetMapping("/logout")
-    public String logoutUserRoute() throws ServletException {
+    public String logoutUserRoute(Model model) throws ServletException {
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         SecurityContextHolder.getContext().setAuthentication(null);
         SecurityContextHolder.clearContext();
         httpServletRequest.logout();
+        model.addAttribute("logout", "Logged out Successfully");
         return "login.html";
     }
 
