@@ -5,7 +5,7 @@ import com.will.dawnpatrol.service.SessionService;
 import com.will.dawnpatrol.service.SpotService;
 import com.will.dawnpatrol.service.SurfboardService;
 import com.will.dawnpatrol.service.UserService;
-import com.will.dawnpatrol.utils.ContextAccess;
+import com.will.dawnpatrol.utils.SessionAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +37,7 @@ public class SessionController {
 
     @GetMapping("/paddle")
     public String getSessionPage(Model model){
-        String email = ContextAccess.getActiveUsername();
+        String email = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(email);
         User user = userOptional.get();
 
@@ -64,7 +64,7 @@ public class SessionController {
     @PostMapping("/paddle")
     public String addSessionPage(Model model, @ModelAttribute("session") Session session){
         System.out.println("session + " + session);
-        String email = ContextAccess.getActiveUsername();
+        String email = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(email);
         User user = userOptional.get();
         session.setUser(user);
@@ -93,7 +93,7 @@ public class SessionController {
 
     @GetMapping("/update/{id}")
     public String getUpdateSession(@PathVariable("id") Long id, Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -125,7 +125,7 @@ public class SessionController {
         current.setDate(update.getDate());
         sessionService.addNewSession(current);
 
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> activeUser = userService.findUserByEmail(username);
         User user = activeUser.get();
 
@@ -150,7 +150,7 @@ public class SessionController {
     public String deleteSession(Model model, @PathVariable("id") Long id){
         System.out.println(id);
         sessionService.deleteSpot(id);
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> activeUser = userService.findUserByEmail(username);
         User user = activeUser.get();
 
@@ -173,7 +173,7 @@ public class SessionController {
 
     @GetMapping("/sortbysizedesc")
     public String sortedBySizeDesc(Model model){
-    String username = ContextAccess.getActiveUsername();
+    String username = SessionAccess.getActiveUsername();
     Optional<User> userOptional = userService.findUserByEmail(username);
     User user = userOptional.get();
 
@@ -196,7 +196,7 @@ public class SessionController {
 
     @GetMapping("/sortbysizeasc")
     public String sortedBySizeAsc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -219,7 +219,7 @@ public class SessionController {
 
     @GetMapping("/sortbyratingdesc")
     public String sortedByRatingDesc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -242,7 +242,7 @@ public class SessionController {
 
     @GetMapping("/sortbyratingasc")
     public String sortedByRatingAsc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -265,7 +265,7 @@ public class SessionController {
 
     @GetMapping("/sortbyboardasc")
     public String sortedByBoardDesc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -288,7 +288,7 @@ public class SessionController {
 
     @GetMapping("/sortbyboarddesc")
     public String sortedByBoardAsc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -311,7 +311,7 @@ public class SessionController {
 
     @GetMapping("/sortbyspotasc")
     public String sortedBySpotDesc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -334,7 +334,7 @@ public class SessionController {
 
     @GetMapping("/sortbyspotdesc")
     public String sortedBySpotAsc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -357,7 +357,7 @@ public class SessionController {
 
     @GetMapping("/sortbydatedesc")
     public String sortedByDateDesc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 
@@ -380,7 +380,7 @@ public class SessionController {
 
     @GetMapping("/sortbydateasc")
     public String sortedByDateAsc(Model model){
-        String username = ContextAccess.getActiveUsername();
+        String username = SessionAccess.getActiveUsername();
         Optional<User> userOptional = userService.findUserByEmail(username);
         User user = userOptional.get();
 

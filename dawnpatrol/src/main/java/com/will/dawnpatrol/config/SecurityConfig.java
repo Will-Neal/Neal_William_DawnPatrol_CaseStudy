@@ -19,7 +19,7 @@ public class SecurityConfig {
         this.customUserDetailsService = customUserDetailsService;
     }
 
-
+    //error handling
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 

@@ -33,6 +33,7 @@ public class UserController {
 		return "register.html";
 	}
 
+	//error handling
 	@PostMapping("/register")
 	public String postRegister(Model model, @ModelAttribute("user") User user) throws SQLIntegrityConstraintViolationException{
 			String email = user.getEmail();
@@ -56,8 +57,6 @@ public class UserController {
 		List<User> userlist = userService.getAllUsers();
 		Optional<User> optionalUser = userService.findUserByEmail("will@email.com");
 		User singleUser = optionalUser.get();
-//		System.out.println(userlist);
-//		System.out.println(singleUser);
 
 		//Get email of signed in User
 		Object userContext = SecurityContextHolder.getContext().getAuthentication().getName();

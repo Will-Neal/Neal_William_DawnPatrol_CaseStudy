@@ -17,7 +17,7 @@ public class AuthController {
     HttpServletRequest httpServletRequest;
 
 
-    //Attempts at clearing the context
+    //Exception Handling
     @GetMapping("/logout")
     public String logoutUserRoute(Model model) throws ServletException {
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
