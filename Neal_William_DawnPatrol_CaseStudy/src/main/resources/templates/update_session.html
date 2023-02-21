@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Session</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Poppins&family=Quicksand:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/update_session.css}">
+    <link rel="stylesheet" href="../static/css/update_session.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+</head>
+<body>
+<div th:insert="~{header.html}"></div>
+<h1>Update Session</h1>
+
+<div class="form-container" style="margin-bottom: 150px;">
+    <form role="form" method="post" th:action="@{/session/update/{id}(id=${id})}" th:object="${session}">
+        <div class="label-input-pair">
+            <label for="date">Date: </label>
+            <br>
+            <input type="date" id="date" th:field="*{date}">
+        </div>
+        <div class="label-input-pair">
+            <label for="size">Size(ft):</label>
+            <br>
+            <input id="size" type="number" th:field="*{size}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="period">Period(s):</label>
+            <br>
+            <input id="period" type="number" th:field="*{period}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="direction">Swell Direction(degrees):</label>
+            <br>
+            <input id="direction" type="number" th:field="*{direction}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="windStrength">Wind Strength(mph):</label>
+            <br>
+            <input id="windStrength" type="number" th:field="*{windStrength}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="windDirection">Wind Direction(degrees):</label>
+            <br>
+            <input id="windDirection" type="number" th:field="*{windDirection}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="board">Board:</label>
+            <br>
+            <select id="board" th:field="*{board}">
+                <option th:each="board : ${surfboards}" th:value="${board.shaper}" th:text="${board.shaper}">
+                </option>
+            </select>
+        </div>
+        <div class="label-input-pair">
+            <label for="spot">Spot:</label>
+            <br>
+            <select id="spot" th:field="*{spot}">
+                <option th:each="break : ${spots}" th:value="${break.name}" th:text="${break.name}">
+                </option>
+            </select>
+        </div>
+        <div class="label-input-pair">
+            <label for="rating">Session Rating: </label>
+            <br>
+            <select id="rating" th:field="*{rating}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="label-input-pair">
+            <label for="boardRating">Board Rating: </label>
+            <br>
+            <select id="boardRating" th:field="*{boardRating}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <br>
+        <div class="label-input-pair">
+            <label for="comment">Comments: </label>
+            <br>
+            <textarea id="comment" cols="30" rows="2" maxlength="253" th:field="*{comment}"></textarea>
+        </div>
+        <br>
+        <input id="submit" type="submit" value="Submit Button">
+    </form>
+</div>
+</body>
+</html>

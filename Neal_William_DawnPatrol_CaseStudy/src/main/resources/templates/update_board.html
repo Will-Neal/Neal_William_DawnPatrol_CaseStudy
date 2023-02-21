@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Poppins&family=Quicksand:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/update_board.css}">
+    <link rel="stylesheet" href="../static/css/update_board.css">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+</head>
+<body>
+<div th:insert="~{header.html}"></div>
+<h1>Update Board</h1>
+
+<div class="form-container">
+    <form role="form" method="post" th:action="@{/board/update/{id}(id=${surfboard.id})}" th:object="${surfboard}">
+        <div class="label-input-pair">
+            <label for="shaper">Shaper: </label>
+                <br>
+            <input id="shaper" type="text" maxlength="253" th:field="*{shaper}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="length">Length: </label>
+                <br>
+            <input id="length" type="text" maxlength="253" th:field="*{length}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="tail">Tail: </label>
+                <br>
+            <input id="tail" type="text" maxlength="253" th:field="*{tail}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="finNum">Fin #: </label>
+                <br>
+            <input id="finNum" type="number"  th:field="*{finNum}"/>
+        </div>
+        <div class="label-input-pair">
+            <label for="finType">Fin Type: </label>
+                <br>
+            <input id="finType" type="text" maxlength="253" th:field="*{finType}"/>
+        </div>
+        <br>
+        <input id="submit" type="submit" value="Submit Button">
+    </form>
+</div>
+</body>
+</html>
