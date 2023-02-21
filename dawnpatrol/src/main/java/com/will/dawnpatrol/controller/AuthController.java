@@ -41,4 +41,10 @@ public class AuthController {
         return "login.html";
     }
 
+//    @GetMapping("/error")
+//    public String errorPage(){
+//
+//        return "error.html";
+//    }
+
 }

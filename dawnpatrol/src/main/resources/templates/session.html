@@ -47,7 +47,7 @@
         <div class="label-input-pair">
             <label for="size">Size(ft): </label>
             <br>
-            <input id="size" type="number" th:field="*{size}"/>
+            <input id="size" type="number" required th:field="*{size}"/>
         </div>
         <div class="label-input-pair">
             <label for="period">Period(s): </label>
@@ -111,7 +111,7 @@
         <div class="label-input-pair">
             <label for="comment">Comments: </label>
             <br>
-            <textarea id="comment" cols="30" rows="2" th:field="*{comment}"></textarea>
+            <textarea id="comment" cols="30" rows="2" maxlength="253" th:field="*{comment}"></textarea>
         </div>
         <br>
         <input id="submit" type="submit" value="Add Session">

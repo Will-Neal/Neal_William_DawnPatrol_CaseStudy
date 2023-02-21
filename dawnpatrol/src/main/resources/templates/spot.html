@@ -20,27 +20,27 @@
         <div class="label-input-pair">
             <label for="name">Name: </label>
             <br>
-            <input id="name" type="text" th:field="*{name}"/>
+            <input id="name" type="text" maxlength="253" required th:field="*{name}"/>
         </div>
         <div class="label-input-pair">
             <label for="type">Type: </label>
             <br>
-            <input id="type" type="text" th:field="*{type}"/>
+            <input id="type" type="text" maxlength="253" th:field="*{type}"/>
         </div>
         <div class="label-input-pair">
             <label for="location">Location: </label>
             <br>
-            <input id="location" type="text" th:field="*{location}"/>
+            <input id="location" type="text" maxlength="253" th:field="*{location}"/>
         </div>
         <div class="label-input-pair">
             <label for="swell">Ideal Swell Direction: </label>
             <br>
-            <input id="swell" type="text" th:field="*{idealExposure}"/>
+            <input id="swell" type="text" maxlength="253" th:field="*{idealExposure}"/>
         </div>
         <div class="label-input-pair">
             <label for="wind">Ideal Wind: </label>
             <br>
-            <input id="wind" type="text" th:field="*{idealWind}"/>
+            <input id="wind" type="text" maxlength="253" th:field="*{idealWind}"/>
         </div>
         <br>
         <input id="submit" type="submit" value="Submit Button">

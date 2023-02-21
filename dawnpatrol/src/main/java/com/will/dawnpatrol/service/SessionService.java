@@ -99,5 +99,4 @@ public class SessionService {
         Double wave = sessionRepository.findAvgWave(id);
         return wave;
     }
-
 }

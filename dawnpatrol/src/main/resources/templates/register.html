@@ -23,27 +23,27 @@
         <br>
         <label for="firstName">First Name: </label>
         <br>
-        <input id="firstName" type="text" th:field="*{firstName}"/>
+        <input id="firstName" type="text" maxlength="253" th:field="*{firstName}"/>
         <br>
         <label for="lastName">Last Name: </label>
         <br>
-        <input id="lastName" type="text" th:field="*{lastName}"/>
+        <input id="lastName" type="text" maxlength="253" th:field="*{lastName}"/>
         <br>
         <label for="email">Email: </label>
         <br>
-        <input id="email" type="text" th:field="*{email}"/>
+        <input id="email" type="text" required maxlength="253" th:field="*{email}"/>
         <br>
         <label for="password">Password: </label>
         <br>
-        <input id="password" type="password" th:field="*{password}"/>
+        <input id="password" type="password" required maxlength="253" th:field="*{password}"/>
         <br>
         <label for="location">Location: </label>
         <br>
-        <input id="location" type="text" th:field="*{location}"/>
+        <input id="location" type="text" maxlength="253" th:field="*{location}"/>
         <br>
         <label for="homebreak">Homebreak: </label>
         <br>
-        <input id="homebreak" type="text" th:field="*{homebreak}"/>
+        <input id="homebreak" type="text" maxlength="253" th:field="*{homebreak}"/>
         <br>
         <br>
         <input id="submit" type="submit" value="Register">

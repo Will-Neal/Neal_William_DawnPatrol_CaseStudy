@@ -20,27 +20,27 @@
         <div class="label-input-pair">
             <label for="shaper">Shaper/Model: </label>
             <br>
-            <input id="shaper" type="text" th:field="*{shaper}"/>
+            <input id="shaper" type="text" maxlength="253" required th:field="*{shaper}"/>
         </div>
         <div class="label-input-pair">
             <label for="length">Length:</label>
             <br>
-            <input id="length" type="text" th:field="*{length}"/>
+            <input id="length" type="text" maxlength="253" th:field="*{length}"/>
         </div>
         <div class="label-input-pair">
             <label for="tail">Tail:</label>
             <br>
-            <input id="tail" type="text" th:field="*{tail}"/>
+            <input id="tail" type="text" maxlength="253" th:field="*{tail}"/>
         </div>
         <div class="label-input-pair">
             <label for="finNum">Fin #:</label>
             <br>
-            <input id="finNum" type="text" th:field="*{finNum}"/>
+            <input id="finNum" type="number" th:field="*{finNum}"/>
         </div>
         <div class="label-input-pair">
             <label for="finType">Fin Type:</label>
             <br>
-            <input id="finType" type="text" th:field="*{finType}"/>
+            <input id="finType" type="text" maxlength="253" th:field="*{finType}"/>
         </div>
         <br>
         <input id="submit" type="submit" value="Submit Button">
