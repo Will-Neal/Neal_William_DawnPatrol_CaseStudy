@@ -5,10 +5,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 
+/**
+ * @author willw
+ * POJO describes User entity in database. Stores user information and is mapped to AuthUser for authentication purposes. 
+ * JsonIgnored is used to prevent sensitive user data from being displayed in RestApi.
+ */
 @Component
 @Entity
 public class User {

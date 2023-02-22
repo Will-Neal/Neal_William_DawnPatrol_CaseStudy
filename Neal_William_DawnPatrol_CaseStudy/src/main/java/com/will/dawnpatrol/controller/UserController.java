@@ -3,17 +3,19 @@ package com.will.dawnpatrol.controller;
 import com.will.dawnpatrol.model.User;
 import com.will.dawnpatrol.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.List;
-import java.util.Optional;
 
+/**
+ * @author willw
+ * Handles routes associated with the User object that arent authorization.
+ * Two methods - getRegister and postRegister.
+ * All routes have sub domain "/user".
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -27,6 +29,11 @@ public class UserController {
 	@Autowired
 	PasswordEncoder encoder;
 
+	/**
+	 * @param model
+	 * @return
+	 * Adds the user model and returns the register template. 
+	 */
 	@GetMapping("/register")
 	public String getRegister(Model model){
 		model.addAttribute("user", user);
@@ -34,6 +41,15 @@ public class UserController {
 	}
 
 	//error handling
+	/**
+	 * @param model
+	 * @param user
+	 * @return
+	 * @throws SQLIntegrityConstraintViolationException
+	 * Takes in model for databind and the User model from the register form. 
+	 * Checks to confirm that supplied email is unique and if so saves to the database. 
+	 * Throws SQLIntegrityConstraintViolationException if the user cannot be saved because it already exists. 
+	 */
 	@PostMapping("/register")
 	public String postRegister(Model model, @ModelAttribute("user") User user) throws SQLIntegrityConstraintViolationException{
 			String email = user.getEmail();
@@ -48,25 +64,5 @@ public class UserController {
 				model.addAttribute("error", "error");
 				return "register.html";
 			}
-	}
-
-
-
-	@GetMapping("/db")
-	public String runDb(Model model) {
-		List<User> userlist = userService.getAllUsers();
-		Optional<User> optionalUser = userService.findUserByEmail("will@email.com");
-		User singleUser = optionalUser.get();
-
-		//Get email of signed in User
-		Object userContext = SecurityContextHolder.getContext().getAuthentication().getName();
-		System.out.println("User context" + userContext);
-		System.out.println(userContext.toString());
-
-		model.addAttribute("userList", userlist);
-		model.addAttribute("singleUser", singleUser);
-		return "db.html";
-		
-	}
-	
+	}	
 }

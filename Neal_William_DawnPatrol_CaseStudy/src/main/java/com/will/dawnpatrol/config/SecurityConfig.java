@@ -9,6 +9,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+/**
+ * @author willw
+ * Configures spring security. Injects the CustomUserDetailsService via constructor injection.
+ * Creates a securityFilterChain and Password Encoder to be used in authentication.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -19,7 +25,13 @@ public class SecurityConfig {
         this.customUserDetailsService = customUserDetailsService;
     }
 
-    //error handling
+    /**
+     * @param http
+     * @return
+     * @throws Exception
+     * Permits user to register or login as well as static files and then requires login for site.
+     * Implements the customUserDetailService as its userDetailsService
+     */
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
@@ -49,6 +61,10 @@ public class SecurityConfig {
                 .build();
     }
 
+    /**
+     * @return
+     * Bcrypt encoder for password encryption.
+     */
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

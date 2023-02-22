@@ -2,6 +2,11 @@ package com.will.dawnpatrol.model;
 
 import java.util.Objects;
 
+/**
+ * @author willw
+ * POJO whose main purpose is to hold data returned from the GenerateWave function in the SessionController.
+ * Contains 3 doubles max, min and average. 
+ */
 public class Wave {
 
     double max;

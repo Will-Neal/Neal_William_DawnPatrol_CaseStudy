@@ -5,9 +5,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+/**
+ * @author willw
+ * Implements UserDetails for use in Spring Security.
+ * Its primary use in the application is to map a User to an AuthUser so that it can be processed by Spring Security.
+ *
+ */
 public class AuthUser implements UserDetails {
 
-    private User user;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private User user;
 
     public AuthUser(User user){
         this.user = user;

@@ -8,6 +8,11 @@ import com.will.dawnpatrol.model.Spot;
 
 import java.util.List;
 
+/**
+ * @author willw
+ * Repository that sets the contract for the SpotService. 
+ * Only contains one method - findByUser, which is used to retrieve all of the Spots associated with the given User. 
+ */
 @Repository
 public interface SpotRepository extends JpaRepository<Spot, Integer>{
     List<Spot> findByUser(User user);

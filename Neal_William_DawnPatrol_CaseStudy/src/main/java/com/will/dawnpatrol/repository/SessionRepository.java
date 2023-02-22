@@ -1,6 +1,5 @@
 package com.will.dawnpatrol.repository;
 
-import com.will.dawnpatrol.model.Surfboard;
 import com.will.dawnpatrol.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,13 +10,24 @@ import com.will.dawnpatrol.model.Session;
 
 import java.util.List;
 
+/**
+ * @author willw
+ * Sets the contract for all of the methods that are implemented in the SessionService. 
+ * All of the findBy methods are used for returning all the data by User in different orders based on the order by clause.
+ * This is used for filtering Sessions on the sessions page.
+ * Min, Max, and Average methods are used for getting User metrics. They are called by the GenerateWaveData function in the SessionsController.
+ */
 @Repository
 public interface SessionRepository extends JpaRepository<Session, Long>{
 
     List<Session> findByUser(User user);
+    
     List<Session> findByUserOrderBySizeDesc(User user);
+    
     List<Session> findByUserOrderBySizeAsc(User user);
+    
     List<Session> findByUserOrderByRatingDesc(User user);
+    
     List<Session> findByUserOrderByRatingAsc(User user);
 
     List<Session> findByUserOrderByBoardDesc(User user);

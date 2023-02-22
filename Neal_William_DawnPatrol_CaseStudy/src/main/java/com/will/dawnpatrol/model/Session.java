@@ -14,6 +14,12 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.stereotype.Component;
 
 
+/**
+ * @author willw
+ * Session entity for storage in the database. Has a Long type ID that is auto generated. 
+ * User_id is a foreign key and a session will be deleted if the associted User is deleted. 
+ * Standard POJO.
+ */
 @Component
 @Entity
 @Table
