@@ -8,7 +8,10 @@
 
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Database](#database)
   - [License](#license)
+  - [Technology](#technology)
+  - [Testing](#testing)
 
   ## Installation
   
@@ -31,7 +34,9 @@ Once you have the project, update the application.properties file with the desir
 
   The main method is contained in the DawnPatrolApplication class in the com.will.dawnpatrol package. Run as a Spring Boot project to start and the database and tables will be automatically created. Navigate to localhost:8080 in your browser, register a user and then login to start using the application. The application will look like: 
 
-  ![SMS Screenshot](https://github.com/Will-Neal/NealSMS_HibernateSBA/blob/main/images/SMS_SS.png?raw=true)
+  ![Login Screenshot](https://github.com/Will-Neal/Neal_William_DawnPatrol_CaseStudy/blob/main/Neal_William_DawnPatrol_CaseStudy/screenshots/loginPage.png?raw=true)
+
+  ![Session Screenshot](https://github.com/Will-Neal/Neal_William_DawnPatrol_CaseStudy/blob/main/Neal_William_DawnPatrol_CaseStudy/screenshots/sessionPage.png?raw=true)
 
   ## Database
 
@@ -64,6 +69,6 @@ Once you have the project, update the application.properties file with the desir
   - JUnit 4
   - JUnit 5
 
-  ## Tests
+  ## Testing
 
   Extensive testing has been completed on this project. There are 22 Junit4 tests run on the Service classes and Repositories. There is also a JUnit 5 parameterized test ran on a Controller method. 
