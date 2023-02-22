@@ -1,7 +1,6 @@
 package com.will.dawnpatrol.repository;
 
 import com.will.dawnpatrol.model.Session;
-import com.will.dawnpatrol.model.Spot;
 import com.will.dawnpatrol.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +13,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author willw
+ * JUnit 4 test for the SessionRepository, which has 13 custom methods.
+ * 
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestSessionRepository {
@@ -26,6 +30,10 @@ public class TestSessionRepository {
 
 
 
+    /**
+     * Test the findByUser method. Creates a test User, saves to DB, creates a test Sessions which is associate to User and also sent to DB.
+     * The Session is the pulled from the DB and checked against the original.
+     */
     @Test
     public void TestFindByUser(){
         User testUser = new User();
@@ -65,6 +73,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     *Test the findByUserOrderBySizeDesc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     *Then pulls the list with the function and checks that the Sessions are returned in the right order. 
+     */
     @Test
     public void TestFindByUserOrderBySizeDesc(){
         User testUser = new User();
@@ -119,6 +131,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderBySizeAsc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderBySizeAsc(){
         User testUser = new User();
@@ -173,6 +189,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderByRatingDesc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     *Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderByRatingDesc(){
         User testUser = new User();
@@ -227,6 +247,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderByRatingAsc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderByRatingAsc(){
         User testUser = new User();
@@ -280,6 +304,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderBySizeDesc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     *	Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderByBoardDesc(){
         User testUser = new User();
@@ -333,6 +361,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderByBoardAsc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderByBoardAsc(){
         User testUser = new User();
@@ -386,6 +418,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderBySpotDesc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderBySpotDesc(){
         User testUser = new User();
@@ -439,6 +475,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderBySpotAsc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderBySpotAsc(){
         User testUser = new User();
@@ -492,6 +532,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderByDateDesc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Sessions are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderByDateDesc(){
         User testUser = new User();
@@ -545,6 +589,10 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Test the findByUserOrderByDateAsc method. Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the list with the function and checks that the Session are returned in the right order.
+     */
     @Test
     public void TestFindByUserOrderByDateAsc(){
         User testUser = new User();
@@ -598,6 +646,11 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Tests the findMaxWave method.
+     * Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the Maximum from the users Sessions and confirms that it matches the expectation.
+     */
     @Test
     public void TestFindMaxWave(){
         User testUser = new User();
@@ -651,6 +704,11 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Tests the findMinWave method.
+     * Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the Minimum from the users Sessions and confirms that it matches the expectation.
+     */
     @Test
     public void TestFindMinWave(){
         User testUser = new User();
@@ -704,6 +762,11 @@ public class TestSessionRepository {
         assertEquals(expectedSize, actualSize);
     }
 
+    /**
+     * Tests the findAvgWave method.
+     * Creates a test User, saves to DB, creates two test Sessions which are associated to User and also sent to DB.
+     * Then pulls the Average from the users Sessions and confirms that it matches the expectation.
+     */
     @Test
     public void TestFindAvgWave(){
         User testUser = new User();

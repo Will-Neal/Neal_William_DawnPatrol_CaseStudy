@@ -14,6 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Optional;
 
+/**
+ * @author willw
+ * JUnit 4 test for the CustomUserDetailService.
+ * Tests the service by testing the method LoadUserByName which is the only method added in the repository. 
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestCustomUserDetailService {
@@ -32,6 +37,10 @@ public class TestCustomUserDetailService {
 
 
 
+    /**
+     * Tests the LoadUserByUSername function by creating a test User, saving that user to the DB,then using the method to retrieve that user for Auth purposes.
+     * A Property is checked to match in order to pass. 
+     */
     @Test
     public void TestLoadUserByUsername(){
         User testUser = new User();

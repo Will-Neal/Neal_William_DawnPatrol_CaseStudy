@@ -2,7 +2,6 @@ package com.will.dawnpatrol.service;
 
 
 import com.will.dawnpatrol.model.Spot;
-import com.will.dawnpatrol.model.Surfboard;
 import com.will.dawnpatrol.model.User;
 import com.will.dawnpatrol.repository.UserRepository;
 import org.junit.Test;
@@ -17,6 +16,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author willw
+ * JUnit 4 test for the SpotService class. 
+ * Tests the AddNewSpot method. 
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestSpotService {
@@ -33,6 +37,10 @@ public class TestSpotService {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * Test the addNewSpot method. Creates a User, associates a Spot with that user and Saves the Session.
+     * Then retrieves the Spots associated with the User and makes sure they match.
+     */
     @Test
     public void TestAddNewSpot(){
         User testUser = new User();

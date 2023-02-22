@@ -2,8 +2,6 @@ package com.will.dawnpatrol.service;
 
 
 import com.will.dawnpatrol.model.Session;
-import com.will.dawnpatrol.model.Spot;
-import com.will.dawnpatrol.model.Surfboard;
 import com.will.dawnpatrol.model.User;
 import com.will.dawnpatrol.repository.UserRepository;
 import org.junit.Test;
@@ -18,6 +16,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author willw
+ * JUnit 4 test for the SessionService class. 
+ * Tests the AddNewSession method. 
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestSessionService {
@@ -34,6 +37,10 @@ public class TestSessionService {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * Test the addNewSession method. Creates a User, associates a Session with that user and Saves the Session.
+     * Then retrieves the Sessions associated with the User and makes sure they match.
+     */
     @Test
     public void TestAddNewSession(){
         User testUser = new User();

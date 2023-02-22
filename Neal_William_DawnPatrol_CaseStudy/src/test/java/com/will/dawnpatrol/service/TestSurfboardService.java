@@ -16,6 +16,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author willw
+ * JUnit 4 test for the SurfboardService class.
+ * Tests the AddNewSurfboard method.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestSurfboardService {
@@ -32,8 +37,12 @@ public class TestSurfboardService {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * Test the addNewSurfboard method. Creates a User, associates a Surfboard with that user and Saves the Surfboard.
+     * Then retrieves the Surfboards associated with the User and makes sure they match.
+     */
     @Test
-    public void TestAddNewSurfboard(){
+    public void TestAddNewSurfboard() {
         User testUser = new User();
         testUser.setEmail("x@1!hG0a@example.com");
         testUser.setPassword("password123");

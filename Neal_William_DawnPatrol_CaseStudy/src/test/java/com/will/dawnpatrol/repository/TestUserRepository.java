@@ -12,6 +12,11 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author willw
+ * Junit 4 test for the User Repository. 
+ * Tests the FindByEmail method which is the only custom method defined in the repository.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TestUserRepository {
@@ -19,6 +24,10 @@ public class TestUserRepository {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * Test the findByEmail method. Creates a User, saves to database and retrieves that User for database.
+     * Then checks the saved User against the returned User.
+     */
     @Test
     public void TestFindByEmail(){
             User expected = new User();
