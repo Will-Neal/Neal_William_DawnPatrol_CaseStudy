@@ -17,13 +17,13 @@
   
 Download the entire project. 
 
-If you get it as a zip file, you must unzip it and import the Neal_William_DawnPatrol_CaseStudy directory contained within the main directory (NealSMSZip) in Eclipse or your IDE of choice. 
+If you get it as a zip file, you must unzip it and import the Neal_William_DawnPatrol_CaseStudy directory contained within the main directory (Neal_William_DawnPatrol_CaseStudy_Zip) in Eclipse or your IDE of choice. 
 
 If you clone it from github you must import the Neal_William_DawnPatrol_CaseStudy contained within the main directory of the same name into eclipse or your IDE of choice.
 
 Once you have the project, update the application.properties file with the desired url and database name as well as the valid username and login for your database. You only need to change the database name if you want it to have a different name on your local host or server. You MUST change the username and password fields to your MySQL login. Those Lines look like:
 
-`spring.datasource.username=MYSQL_URL`
+`spring.datasource.url=MYSQL_URL`
 
 `spring.datasource.username=YOUR_MYSQL_USERNAME`
 
